@@ -15,7 +15,7 @@
 # See the included file <GPL License.txt> for the complete text of the GPL License by which this program is covered.
 
 ARCH			:= i686
-FRMT			:= w64-mingw32
+FRMT			:= elf
 
 #Directories
 OBJDIR			:= obj
@@ -31,7 +31,7 @@ TARGET			:= $(OUTPUTDIR)/kernel.sys
 ASM				:= nasm
 RM				:= rm
 ASMFLAGS 		:= -f elf -I$(ASMINCLUDEPATH)
-LDOPTIONS		:= -T linker.ld -m i386pe
+LDOPTIONS		:= -T scripts/linker.ld -m elf_i386 --sort-common
 COPTIONS		:= -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 				   -nostartfiles -nodefaultlibs
 
